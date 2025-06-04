@@ -61,8 +61,27 @@ export const SplitAnimateView = ({
   text: string;
   delay?: number;
 }) => {
+  const childVariants = {
+    initial: {
+      opacity: 0,
+      y: 150,
+    },
+    inView: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.3,
+        ease: easeInOut,
+        delay: delay + 0.03,
+      },
+    },
+  };
   return (
-    <div className="overflow-hidden text-9xl p-3.5 text-left">
+    <motion.div
+      initial="initial"
+      whileInView="inView"
+      className="overflow-hidden text-9xl p-3.5 text-left"
+    >
       {text.split("").map((ch, i) => {
         console.log(ch);
         if (ch === " ") {
@@ -81,25 +100,13 @@ export const SplitAnimateView = ({
                 ease: "easeIn",
               },
             }}
-            initial={{
-              opacity: 0,
-              y: 150,
-            }}
-            whileInView={{
-              opacity: 1,
-              y: 0,
-              transition: {
-                duration: 0.3,
-                ease: easeInOut,
-                delay: delay + 0.03 * i,
-              },
-            }}
+            variants={childVariants}
             className={`text-9xl font-extrabold tracking-tight inline-block text-left`}
           >
             {ch}
           </motion.span>
         );
       })}
-    </div>
+    </motion.div>
   );
 };
