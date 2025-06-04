@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { SplitAnimate } from "./SplitAnimate";
+import { SplitAnimate, SplitAnimateView } from "./SplitAnimate";
 import Image from "next/image";
 import Image1 from "../../public/pic1.jpg";
 
@@ -20,8 +20,8 @@ export const Section2 = () => {
           <Image src={Image1} alt="image1" priority fill />
         </motion.div>
         <div className="h-[100vh] w-full flex flex-col items-start justify-center cursor-pointer">
-          <SplitAnimate text="Animation" delay={0.4} />
-          <SplitAnimate text="Examples" delay={0.5} />
+          <SplitAnimateView text="Animation" />
+          <SplitAnimateView text="Examples" />
           <motion.p
             initial={{ x: -20, opacity: 0, filter: "blur(20px)" }}
             whileInView={{ x: 0, opacity: 1, filter: "blur(0px)" }}
