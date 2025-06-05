@@ -5,6 +5,14 @@
   --foreground: #171717;
 }
 
+.inActive {
+  clip-path: inset(0 100% 0 0);
+}
+
+.active {
+  clip-path: inset(0 0% 0 0);
+}
+
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);

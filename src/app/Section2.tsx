@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { SplitAnimate, SplitAnimateView } from "./SplitAnimate";
+import { SplitAnimateView } from "./SplitAnimate";
 import Image from "next/image";
 import Image1 from "../../public/pic1.jpg";
 
