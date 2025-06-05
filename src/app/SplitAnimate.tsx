@@ -80,6 +80,7 @@ export const SplitAnimateView = ({
     <motion.div
       initial="initial"
       whileInView="inView"
+      viewport={{ once: true, amount: 0.7 }}
       className="overflow-hidden text-9xl p-3.5 text-left"
     >
       {text.split("").map((ch, i) => {
