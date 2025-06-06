@@ -3,10 +3,12 @@ import { useRef, useEffect, useState } from "react";
 import { gsap } from "gsap";
 
 const images = [
-  "https://images.unsplash.com/photo-1731410612759-d93cede4edbc?q=80&w=3087&auto=format&fit=crop",
-  "https://images.unsplash.com/photo-1731332066050-47efac6e884f?q=80&w=2940&auto=format&fit=crop",
-  "https://images.unsplash.com/photo-1629129281524-b1e1a1a099d2?q=80&w=3087&auto=format&fit=crop",
+  "https://images.unsplash.com/photo-1545569341-9eb8b30979d9?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  "https://images.unsplash.com/photo-1542640244-7e672d6cef4e?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  "https://images.unsplash.com/photo-1601823984263-b87b59798b70?q=80&w=3087&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
 ];
+
+const headers = ["JAPAN", "BRINGS OUT THE", "BEST IN YOU"];
 
 export default function Section3() {
   const [current, setCurrent] = useState(0);
@@ -48,7 +50,7 @@ export default function Section3() {
 
   return (
     <div className="h-[100vh] w-[100vw] flex items-center justify-center">
-      <div className="relative w-[90vw] max-w-5xl aspect-video mx-auto overflow-hidden">
+      <div className="relative w-full mx-auto aspect-video overflow-hidden">
         {images.map((src, i) => (
           <div
             key={i}
@@ -62,11 +64,16 @@ export default function Section3() {
               alt={`Slide ${i}`}
               className="w-full h-full object-cover block"
             />
+            <div className="overlay absolute top-0 left-0 z-30 bg-black/35 h-full w-full">
+              <h1 className="text-8xl text-white z-50 mt-40 ml-9">
+                {headers[i]}
+              </h1>
+            </div>
           </div>
         ))}
         <button
           onClick={nextSlide}
-          className="absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-white text-black px-4 py-2 rounded shadow z-10"
+          className="absolute bottom-10 left-1/2 transform -translate-x-1/2 bg-white text-black px-4 py-2 rounded shadow z-10"
         >
           Next
         </button>
