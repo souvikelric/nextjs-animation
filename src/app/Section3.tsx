@@ -1,6 +1,7 @@
 "use client";
 import { useRef, useEffect, useState } from "react";
 import { gsap } from "gsap";
+import { easeInOut, motion } from "framer-motion";
 
 const images = [
   "https://images.unsplash.com/photo-1545569341-9eb8b30979d9?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
@@ -65,9 +66,14 @@ export default function Section3() {
               className="w-full h-full object-cover block"
             />
             <div className="overlay absolute top-0 left-0 z-30 bg-black/35 h-full w-full">
-              <h1 className="text-8xl text-white z-50 mt-40 ml-9">
+              <motion.h1
+                initial={{ opacity: 0, y: 100 }}
+                animate={current === i ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.3, ease: easeInOut, type: "tween" }}
+                className="text-9xl tracking-tighter text-white z-50 mt-40 ml-9"
+              >
                 {headers[i]}
-              </h1>
+              </motion.h1>
             </div>
           </div>
         ))}
